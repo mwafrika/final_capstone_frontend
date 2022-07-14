@@ -5,6 +5,9 @@ on: pull_request
 env:
   FORCE_COLOR: 1
 
+defaults:
+  run:
+    working-directory: frontend-app
 jobs:
   eslint:
     name: ESLint
