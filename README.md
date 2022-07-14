@@ -7,9 +7,9 @@
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Major languages: HTML, CSS, Ruby, JS(ES6)
+- Frameworks: React, Rails
+- Technologies used: PostgreSQL, Redux, Rspec, and Jest
 
 ## Live Demo (if available)
 
@@ -40,11 +40,11 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
+👤 **Bushra Mustofa**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@bushmusi](https://github.com/bushmusi)
+- Twitter: [@bushera_mestofa](https://twitter.com/bushera_mestofa)
+- LinkedIn: [bushra-mustofa](https://linkedin.com/in/bushra-mustofa)
 
 👤 **Author2**
 
