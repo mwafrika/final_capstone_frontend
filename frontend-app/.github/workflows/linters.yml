@@ -5,6 +5,9 @@ on: pull_request
 env:
   FORCE_COLOR: 1
 
+defaults:
+  run:
+    working_directory: /frontend-app
 jobs:
   eslint:
     name: ESLint
@@ -21,9 +24,7 @@ jobs:
           [ -f .babelrc ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/react-redux/.babelrc
       - name: ESLint Report
         run: npx eslint .
-      - name: Clean frontend-app directory
-        run: rm -rf *
-        working-directory: ./frontend-app
+
   stylelint:
     name: Stylelint
     runs-on: ubuntu-18.04
