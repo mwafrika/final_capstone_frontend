@@ -21,11 +21,6 @@ jobs:
           [ -f .babelrc ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/react-redux/.babelrc
       - name: ESLint Report
         run: npx eslint .
-      - name: Push Repo as Subdirectory
-        uses: NoahDragon/action-push-repo-as-subdirectory-in-another-repo@0.0.6
-        with:
-          dest-repo: 'mwafrika/final_capstone'
-          dest-folder: 'frontend-app'
 
   stylelint:
     name: Stylelint
@@ -41,6 +36,7 @@ jobs:
           [ -f .stylelintrc.json ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/react-redux/.stylelintrc.json
       - name: Stylelint Report
         run: npx stylelint "**/*.{css,scss}"
+
   nodechecker:
     name: node_modules checker
     runs-on: ubuntu-18.04
