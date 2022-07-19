@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
+  ],
   theme: {
     sm: { min: '640px', max: '767px' },
     // => @media (min-width: 640px and max-width: 767px) { ... }
@@ -73,5 +76,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 };
