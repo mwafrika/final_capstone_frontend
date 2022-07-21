@@ -1,10 +1,12 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import yourReducer from './reducers/yourReducer';
+import userReducer from './reducers/user';
+import carReducer from './reducers/car';
 
 const rootReducer = combineReducers({
-  reducer: yourReducer,
+  user: userReducer,
+  car: carReducer,
 });
 
 const store = createStore(
