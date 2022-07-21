@@ -1,16 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './components/login';
+import Login from './components/Login';
 import './App.css';
+import Bikes from './components/main-page';
+import Signup from './components/Signup';
+import AddBike from './components/AddBike';
 
-const App = () => (
-  <div className='text-sky-500 d-flex'>
-    <Routes>
-      <Route path='/create' element={<Home />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/' element={<Home />} />
-    </Routes>
-  </div>
-);
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route exact path='/' exactly element={<Bikes />} />
+        <Route path='/reservations' />
+        <Route path='/add_bike' element={<AddBike />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+      </Routes>
+    </>
+  );
+}
 
 export default App;

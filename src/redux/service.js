@@ -3,7 +3,12 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:3000';
 
 export const signup = async (user) => {
-  const response = await axios.post(`${BASE_URL}/users`, user);
+  const response = await axios.post(`${BASE_URL}/users`, {
+    user: {
+      email: user.email,
+      password: user.password,
+    },
+  });
   return response.data;
 };
 

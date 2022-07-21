@@ -40,9 +40,7 @@ export const signup = (userData, location) => (dispatch) => {
         type: actionTypes.USER_REGISTER_SUCCESS,
         payload: user,
       });
-      localStorage.setItem('token', user.token);
-      localStorage.setItem('user', JSON.stringify(user));
-      location.push('/');
+      location('/login');
     })
     .catch((error) => {
       dispatch({
