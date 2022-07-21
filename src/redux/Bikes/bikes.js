@@ -3,6 +3,7 @@ import { bikesURL } from '../../helpers/api';
 
 const FETCH_DATA = 'bikes/FETCH_DATA';
 const POST_DATA = 'bikes/POST_DATA';
+const DELETE_BIKE = 'bikes/DELETE_BIKES';
 const initialState = [];
 
 export const fetchBikes = async () => {
@@ -17,6 +18,13 @@ export const postBikesToApi = (data) => async (dispatch) => {
     });
 };
 
+export const deleteBike = (id) => async (dispatch) => {
+  await axios.delete(`${bikesURL}/${id}`)
+    .then((response) => {
+      dispatch({ type: DELETE_BIKE, payload: response });
+    });
+};
+
 const bikeReducers = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DATA:
@@ -26,6 +34,11 @@ const bikeReducers = (state = initialState, action) => {
       };
     case POST_DATA:
       return action.payload;
+    case DELETE_BIKE:
+      return {
+        ...state,
+        bikes: state.cars.filter((item) => item.id !== action.payload),
+      };
     default:
       return state;
   }
