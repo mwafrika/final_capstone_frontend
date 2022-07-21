@@ -1,15 +1,14 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import yourReducer from './reducers/yourReducer';
+import bikeReducers from './Bikes/bikes';
+import reservationReducers from './Reservations/reservation';
+import userReducer from './user/user';
 
-const rootReducer = combineReducers({
-  reducer: yourReducer,
+const reducers = combineReducers({
+  bikeReducers, userReducer, allReservation: reservationReducers,
 });
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
-);
+const store = createStore(reducers, applyMiddleware(logger, thunk));
 
 export default store;
