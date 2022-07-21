@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Bikes from './redux/Bikes/bikes';
+import Bikes from './components/main-page';
 import Reservations from './redux/Reservations/reservation';
 import Login from './components/Login';
 import Signup from './components/Signup';
