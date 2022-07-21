@@ -26,25 +26,25 @@ const reducer = (state = initialState, action) => {
         isLoggedIn: false,
         user: null,
       };
-    // case 'USER_LOGOUT_SUCCESS':
-    //   return {
-    //     ...state,
-    //     isLoggedIn: false,
-    //     user: null,
-    //   };
-    // case 'USER_LOGOUT_FAILURE':
-    //   return {
-    //     ...state,
-    //     isLoggedIn: true,
-    //     user: action.payload,
-    //   };
-    case 'USER_REGISTER_SUCCESS':
+    case actionTypes.USER_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
+      };
+    case actionTypes.USER_LOGOUT_FAILURE:
       return {
         ...state,
         isLoggedIn: true,
         user: action.payload,
       };
-    case 'USER_REGISTER_FAILURE':
+    case actionTypes.USER_REGISTER_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: action.payload,
+      };
+    case actionTypes.USER_REGISTER_FAILURE:
       return {
         ...state,
         isLoggedIn: false,
