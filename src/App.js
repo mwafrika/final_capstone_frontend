@@ -1,16 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Bikes from './redux/Bikes/bikes';
+import Reservations from './redux/Reservations/reservation';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
-const App = () => (
-  <div className="text-sky-500 d-flex">
-    <Router>
+function App() {
+  return (
+    <>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route exact path="/" exactly element={<Bikes />} />
+        <Route path="/Reservations" component={Reservations} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/Registration" element={<Signup />} />
       </Routes>
-    </Router>
-    <Home />
-  </div>
-);
+    </>
+  );
+}
 
 export default App;
