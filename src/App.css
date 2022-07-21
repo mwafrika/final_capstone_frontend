@@ -7,6 +7,15 @@
   font-family: 'Lato', sans-serif;
 }
 
+.App {
+  height: 100vh;
+}
+
+.active {
+  background-color: #98be20;
+  color: white;
+}
+
 .home,
 .reservations,
 .add-reservation {
