@@ -34,7 +34,10 @@ const BikeForm = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className='add-bike-form'>
+      <form
+        onSubmit={handleSubmit}
+        className='add-bike-form flex flex-col w-[40%] mx-auto mt-10'
+      >
         <input
           className='add-bike-input-field input-field'
           placeholder='Bike Name'
@@ -122,7 +125,7 @@ const BikeForm = () => {
           onChange={handleChange}
           required
         />
-        <button className='add-bike-btn' type='submit'>
+        <button className='add-bike-btn bg-lime-300 py-4 mt-4' type='submit'>
           Create Bike
         </button>
       </form>

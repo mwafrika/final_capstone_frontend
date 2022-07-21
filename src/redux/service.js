@@ -57,10 +57,9 @@ export const createCar = async (car, e) => {
 export const fetchCars = async () => {
   const response = await axios.get(`${BASE_URL}/cars`, {
     headers: {
-      'Content-Type': 'multipart/form-data',
-      Authorization: `Bearer ${authHeader()}`,
+      'Content-Type': 'application/json',
     },
   });
-
+  console.log(response.data, 'response fetch cars');
   return response.data;
 };

@@ -33,6 +33,7 @@ export const newCar = (car, navigate, e) => (dispatch) => {
 export const fetchCars = () => (dispatch) => {
   API.fetchCars()
     .then((cars) => {
+      console.log('cars', cars);
       dispatch({
         type: actionTypes.BIKES_FETCH_SUCCESS,
         payload: cars,
