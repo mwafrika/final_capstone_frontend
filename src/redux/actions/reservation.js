@@ -24,22 +24,18 @@ export const createReserve = (reservation) => ({
 export const deleteData = (id) => ({
   type: DELETE_DATA,
   payload: id,
-
 });
 export const setBikes = (bikes) => ({
   type: FETCH_BIKE,
   payload: bikes,
-
 });
 export const deleteCar = (id) => ({
   type: DELETE_BIKE,
   payload: id,
-
 });
 export const addBike = (bike) => ({
   type: ADD_BIKE,
   payload: bike,
-
 });
 // reducer
 
@@ -51,10 +47,11 @@ const reservationReducers = (state = initialState, action) => {
         reservation: action.payload,
       };
     case DELETE_DATA:
-
       return {
         ...state,
-        reservation: state.reservation.filter((item) => item.id !== action.payload),
+        reservation: state.reservation.filter(
+          (item) => item.id !== action.payload,
+        ),
       };
     case FETCH_BIKE:
       return {
@@ -67,7 +64,6 @@ const reservationReducers = (state = initialState, action) => {
         reservation: [...state.reservation, action.payload],
       };
     case DELETE_BIKE:
-
       return {
         ...state,
         bikes: state.bikes.filter((item) => item.id !== action.payload),

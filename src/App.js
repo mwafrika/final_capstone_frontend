@@ -1,23 +1,21 @@
-import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Bikes from './components/main-page';
-import Reservations from './redux/Reservations/reservation';
 import Login from './components/Login';
+import './App.css';
+import Bikes from './components/main-page';
 import Signup from './components/Signup';
-import AddBike from './components/AddBike';
-import DeleteBike from './components/DeleteBike';
+import AddBike from './components/BikeForm';
+import BikeList from './components/BikeList';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" exactly element={<Bikes />} />
-        <Route path="/Reservations" component={Reservations} />
-        <Route path="/add_bike" element={<AddBike />} />
-        <Route path="/delete_bike" element={<DeleteBike />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Registration" element={<Signup />} />
+        <Route exact path='/' exactly element={<Bikes />} />
+        <Route path='/reservations' />
+        <Route path='/add_bike' element={<AddBike />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/bikes' element={<BikeList />} />
       </Routes>
     </>
   );

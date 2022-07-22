@@ -6,7 +6,7 @@ import BikeForm from './BikeForm';
 const Response = ({ show, setShow }) => {
   if (show) {
     return (
-      <Alert variant="success" onClose={() => setShow(false)} dismissible>
+      <Alert variant='success' onClose={() => setShow(false)} dismissible>
         <Alert.Heading>Congratulations!!!</Alert.Heading>
         <p>New listing has been successfully created.</p>
       </Alert>
