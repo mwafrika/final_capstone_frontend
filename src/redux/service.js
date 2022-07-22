@@ -40,7 +40,7 @@ export const createBike = async (bike, e) => {
   formData.append('bike[is_available]', bike.is_available);
   formData.append('bike[price]', bike.price);
 
-  const response = await axios.post(`${BASE_URL}/cars`, formData, {
+  const response = await axios.post(`${BASE_URL}/bikes`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${authHeader()}`,
@@ -51,7 +51,7 @@ export const createBike = async (bike, e) => {
 };
 
 export const fetchBikes = async () => {
-  const response = await axios.get(`${BASE_URL}/cars`, {
+  const response = await axios.get(`${BASE_URL}/bikes`, {
     headers: {
       'Content-Type': 'application/json',
     },
