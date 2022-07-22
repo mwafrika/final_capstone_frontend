@@ -26,7 +26,7 @@ export default function navigation() {
           </ul>
         </div>
       </div>
-      <div className='row-span-2 self-end justify-self-center self-end h-3/4'>
+      <div className='row-span-2 justify-self-center self-end h-3/4'>
         <div className='grid grid-rows-2 gap-2'>
           <ul className='flex gap-2 justify-center'>
             <li>

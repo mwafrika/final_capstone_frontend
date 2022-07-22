@@ -1,25 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-import { fetchCars } from '../redux/actions/cars';
+import { fetchbikes } from '../redux/actions/bikes';
 
 const BikeList = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  const { cars } = useSelector((state) => state.car);
+  const { bikes } = useSelector((state) => state.bike);
 
   useEffect(() => {
-    if (cars.length === 0) {
-      dispatch(fetchCars());
+    if (bikes.length === 0) {
+      dispatch(fetchbikes());
     }
   }, []);
-
-  console.log(cars, 'check cars components');
 
   return (
     <section>
       <ul className='bikes-container'>
-        {cars?.map((bike) => (
+        {bikes?.map((bike) => (
           <li key={bike.id}>
             <img src={bike?.image_url} alt='bike_image' width='100px' />
             <div>

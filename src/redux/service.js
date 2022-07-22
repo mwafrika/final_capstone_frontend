@@ -31,16 +31,14 @@ const authHeader = () => {
   return {};
 };
 
-export const createCar = async (car, e) => {
+export const createBike = async (bike, e) => {
   const formData = new FormData();
-  formData.append('car[image]', e.target.image.files[0]);
-  formData.append('car[make]', car.make);
-  formData.append('car[model]', car.model);
-  formData.append('car[description]', car.description);
-  formData.append('car[number_of_passenger]', car.number_of_passenger);
-  formData.append('car[is_available]', car.is_available);
-  formData.append('car[price_per_hour]', car.price_per_hour);
-  formData.append('car[price_per_day]', car.price_per_day);
+  formData.append('bike[image]', e.target.image.files[0]);
+  formData.append('bike[make]', bike.make);
+  formData.append('bike[model]', bike.model);
+  formData.append('bike[description]', bike.description);
+  formData.append('bike[is_available]', bike.is_available);
+  formData.append('bike[price]', bike.price);
 
   const response = await axios.post(`${BASE_URL}/cars`, formData, {
     headers: {
@@ -49,17 +47,15 @@ export const createCar = async (car, e) => {
     },
   });
 
-  console.log(authHeader(), 'response formdata car');
-
   return response.data;
 };
 
-export const fetchCars = async () => {
+export const fetchBikes = async () => {
   const response = await axios.get(`${BASE_URL}/cars`, {
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  console.log(response.data, 'response fetch cars');
+
   return response.data;
 };
