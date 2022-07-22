@@ -13,12 +13,12 @@ const actionTypes = {
   BIKE_DELETE_FAILURE: 'BIKE_DELETE_FAILURE',
 };
 
-export const newCar = (car, navigate, e) => (dispatch) => {
-  API.createCar(car, e)
-    .then((car) => {
+export const newBike = (bike, navigate, e) => (dispatch) => {
+  API.createBike(bike, e)
+    .then((bike) => {
       dispatch({
         type: actionTypes.BIKE_CREATE_SUCCESS,
-        payload: car,
+        payload: bike,
       });
       navigate('/');
     })
@@ -30,13 +30,12 @@ export const newCar = (car, navigate, e) => (dispatch) => {
     });
 };
 
-export const fetchCars = () => (dispatch) => {
-  API.fetchCars()
-    .then((cars) => {
-      console.log('cars', cars);
+export const fetchbikes = () => (dispatch) => {
+  API.fetchBikes()
+    .then((bikes) => {
       dispatch({
         type: actionTypes.BIKES_FETCH_SUCCESS,
-        payload: cars,
+        payload: bikes,
       });
     })
     .catch((error) => {

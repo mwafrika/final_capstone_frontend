@@ -12,8 +12,8 @@ const actionTypes = {
 };
 
 const initialState = {
-  cars: [],
-  car: {},
+  bikes: [],
+  bike: {},
   loading: false,
   error: null,
 };
@@ -23,35 +23,35 @@ const reducer = (state = initialState, action) => {
     case actionTypes.BIKES_FETCH_SUCCESS:
       return {
         ...state,
-        cars: action.payload,
+        bikes: action.payload,
         loading: false,
         error: null,
       };
     case actionTypes.BIKES_FETCH_FAILURE:
       return {
         ...state,
-        cars: [],
+        bikes: [],
         loading: false,
         error: action.payload,
       };
     case actionTypes.BIKE_FETCH_SUCCESS:
       return {
         ...state,
-        car: action.payload,
+        bike: action.payload,
         loading: false,
         error: null,
       };
     case actionTypes.BIKE_FETCH_FAILURE:
       return {
         ...state,
-        car: {},
+        bike: {},
         loading: false,
         error: action.payload,
       };
     case actionTypes.BIKE_CREATE_SUCCESS:
       return {
         ...state,
-        cars: [...state.cars, action.payload],
+        bikes: [...state.bikes, action.payload],
         loading: false,
         error: null,
       };
@@ -64,11 +64,11 @@ const reducer = (state = initialState, action) => {
     case actionTypes.BIKE_UPDATE_SUCCESS:
       return {
         ...state,
-        cars: state.cars.map((car) => {
-          if (car.id === action.payload.id) {
+        bikes: state.bikes.map((bike) => {
+          if (bike.id === action.payload.id) {
             return action.payload;
           }
-          return car;
+          return bike;
         }),
         loading: false,
         error: null,
@@ -82,7 +82,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.BIKE_DELETE_SUCCESS:
       return {
         ...state,
-        cars: state.cars.filter((car) => car.id !== action.payload.id),
+        bikes: state.bikes.filter((bike) => bike.id !== action.payload.id),
         loading: false,
         error: null,
       };

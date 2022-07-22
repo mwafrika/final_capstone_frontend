@@ -1,36 +1,30 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-import { fetchCars } from '../redux/actions/cars';
+import { fetchbikes } from '../redux/actions/bikes';
 
-const DeleteBike = () => {
+const BikeList = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  const cars = useSelector((state) => state.car);
+  const { bikes } = useSelector((state) => state.bike);
 
   useEffect(() => {
-    dispatch(fetchCars());
+    if (bikes.length === 0) {
+      dispatch(fetchbikes());
+    }
   }, []);
-
-  console.log(cars, 'check cars components');
 
   return (
     <section>
       <ul className='bikes-container'>
-        {Object.values(cars)?.map((bike) => (
+        {bikes?.map((bike) => (
           <li key={bike.id}>
-            {/* <img src={bike.image} alt='bike_image' width='100px' /> */}
+            <img src={bike?.image_url} alt='bike_image' width='100px' />
             <div>
               <span>
-                {/* {bike.make}
-                {' '} */}
-                {bike.model}
-              </span>
-              <span>
-                status:
+                {bike.make}
                 {' '}
-                {bike.is_available ? 'available' : 'unavailable'}
+                {bike?.model}
               </span>
+              <span>{bike.is_available ? 'available' : 'unavailable'}</span>
               <button type='button'> Delete</button>
             </div>
           </li>
@@ -40,4 +34,4 @@ const DeleteBike = () => {
   );
 };
 
-export default DeleteBike;
+export default BikeList;

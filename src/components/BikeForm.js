@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { newCar } from '../redux/actions/cars';
+import { newBike } from '../redux/actions/bikes';
 
 const BikeForm = () => {
   const [car, setCar] = useState({
@@ -9,10 +9,8 @@ const BikeForm = () => {
     model: '',
     description: '',
     image: '',
-    number_of_passenger: '',
     is_available: true,
-    price_per_hour: '',
-    price_per_day: '',
+    price: '',
   });
 
   const handleChange = (e) => {
@@ -24,12 +22,10 @@ const BikeForm = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cars = useSelector((state) => state.car);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(newCar(car, navigate, e));
-    console.log(cars, 'check cars components');
+    dispatch(newBike(car, navigate, e));
   };
 
   return (
@@ -62,17 +58,6 @@ const BikeForm = () => {
         />
         <input
           className='add-bike-input-field input-field'
-          placeholder='Per Day Amount'
-          type='text'
-          name='price_per_day'
-          value={car.price_per_day}
-          minLength='1'
-          maxLength='100'
-          onChange={handleChange}
-          required
-        />
-        <input
-          className='add-bike-input-field input-field'
           type='file'
           id='image'
           name='image'
@@ -81,39 +66,19 @@ const BikeForm = () => {
           onChange={handleChange}
           required
         />
-        <input
-          className='add-bike-input-field input-field'
-          placeholder='Number of Passengers'
-          type='text'
-          name='number_of_passenger'
-          value={car.number_of_passenger}
-          minLength='1'
-          maxLength='100'
-          onChange={handleChange}
-          required
-        />
+
         <input
           className='add-bike-input-field input-field'
           placeholder='Price per hour'
           type='text'
-          name='price_per_hour'
-          value={car.price_per_hour}
+          name='price'
+          value={car.price}
           minLength='1'
           maxLength='100'
           onChange={handleChange}
           required
         />
-        <input
-          className='add-bike-input-field input-field'
-          placeholder='Price per day'
-          type='text'
-          name='price_per_day'
-          value={car.price_per_day}
-          minLength='1'
-          maxLength='100'
-          onChange={handleChange}
-          required
-        />
+
         <textarea
           className='add-bike-input-field input-field'
           placeholder='Description'

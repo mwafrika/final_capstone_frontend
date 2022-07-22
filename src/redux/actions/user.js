@@ -20,9 +20,7 @@ export const login = (userData, location) => (dispatch) => {
       const result = response.headers.authorization;
       localStorage.setItem('token', result.split(' ')[1]);
       localStorage.setItem('user', JSON.stringify(response.data));
-      console.log('Headers', response.data);
 
-      //   console.log('Headers', response.headers); if (response.headers.authorization != null) {
       location('/');
     })
     .catch((error) => {
