@@ -49,7 +49,6 @@ export const fetchbikes = () => (dispatch) => {
 export const fetchbike = (id) => (dispatch) => {
   API.getBike(id)
     .then((bike) => {
-      console.log(bike, 'check for bike');
       dispatch({
         type: actionTypes.BIKE_FETCH_SUCCESS,
         payload: bike,

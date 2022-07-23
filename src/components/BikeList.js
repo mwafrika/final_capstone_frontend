@@ -15,7 +15,6 @@ const BikeList = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteBike(id, navigate));
-    console.log(bikes.length, 'check the length');
   };
 
   const handleLogout = () => {
