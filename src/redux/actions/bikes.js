@@ -45,3 +45,37 @@ export const fetchbikes = () => (dispatch) => {
       });
     });
 };
+
+export const fetchbike = (id) => (dispatch) => {
+  API.getBike(id)
+    .then((bike) => {
+      console.log(bike, 'check for bike');
+      dispatch({
+        type: actionTypes.BIKE_FETCH_SUCCESS,
+        payload: bike,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: actionTypes.BIKE_FETCH_FAILURE,
+        payload: error,
+      });
+    });
+};
+
+export const deleteBike = (id, navigate) => (dispatch) => {
+  API.deleteBike(id)
+    .then(() => {
+      dispatch({
+        type: actionTypes.BIKE_DELETE_SUCCESS,
+        payload: id,
+      });
+      navigate('/bikes');
+    })
+    .catch((error) => {
+      dispatch({
+        type: actionTypes.BIKE_DELETE_FAILURE,
+        payload: error,
+      });
+    });
+};

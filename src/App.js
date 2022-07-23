@@ -5,6 +5,8 @@ import Bikes from './components/main-page';
 import Signup from './components/Signup';
 import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
+import BikeDetails from './components/ItemDetail';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/bikes' element={<BikeList />} />
+        <Route path='/bikes/:id' element={<BikeDetails />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   );

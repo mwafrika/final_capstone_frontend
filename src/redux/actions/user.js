@@ -47,3 +47,17 @@ export const signup = (userData, location) => (dispatch) => {
       });
     });
 };
+
+export const logout = (navigate) => (dispatch) => {
+  if (localStorage.getItem('token')) {
+    localStorage.removeItem('token');
+    dispatch({
+      type: actionTypes.USER_LOGOUT_SUCCESS,
+    });
+    navigate('/');
+  } else {
+    dispatch({
+      type: actionTypes.USER_LOGOUT_FAILURE,
+    });
+  }
+};

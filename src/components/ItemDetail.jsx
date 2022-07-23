@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsGear } from 'react-icons/bs';
 import { FaArrowCircleRight } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchbike } from '../redux/actions/bikes';
 
 export default function ItemDetail() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const { bike } = useSelector((state) => state.bike);
+  console.log(bike, 'check single bike');
+
+  useEffect(() => {
+    dispatch(fetchbike(id));
+  }, [dispatch, id]);
+
   return (
     <>
       <div className='flex flex-col gap-2 mb-3 items-end p-1'>
-        <strong>VESPA 946</strong>
+        <strong>{bike.model}</strong>
         <p>$250 deposit upon any vespa</p>
       </div>
       <ul className='flex flex-col p-1'>
@@ -34,7 +46,8 @@ export default function ItemDetail() {
       <div className='flex flex-col items-end pr-3 mt-5'>
         <strong>DISCOVER MORE MODELS</strong>
         <img
-          src={`${process.env.PUBLIC_URL}/assets/images/color-picker.jpeg`}
+          // src={`${process.env.PUBLIC_URL}/assets/images/color-picker.jpeg`}
+          src={bike.image_url}
           alt='color picker'
           className='w-3/4'
         />

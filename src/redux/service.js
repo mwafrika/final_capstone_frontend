@@ -59,3 +59,24 @@ export const fetchBikes = async () => {
 
   return response.data;
 };
+
+export const deleteBike = async (id) => {
+  const response = await axios.delete(`${BASE_URL}/bikes/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
+    },
+  });
+
+  return response.data;
+};
+
+export const getBike = async (id) => {
+  const response = await axios.get(`${BASE_URL}/bikes/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return response.data;
+};
