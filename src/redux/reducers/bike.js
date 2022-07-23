@@ -82,7 +82,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.BIKE_DELETE_SUCCESS:
       return {
         ...state,
-        bikes: state.bikes.filter((bike) => bike.id !== action.payload.id),
+        bikes: state.bikes.filter((bike) => bike.id !== action.payload),
         loading: false,
         error: null,
       };
