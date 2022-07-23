@@ -9,7 +9,6 @@ export default function ItemDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { bike } = useSelector((state) => state.bike);
-  console.log(bike, 'check single bike');
 
   useEffect(() => {
     dispatch(fetchbike(id));
