@@ -1,6 +1,6 @@
 import { TiMediaPlayReverseOutline } from 'react-icons/ti';
 
-import Navigation from './navigation';
+import Navigation from './Navbar';
 import ItemDetail from './ItemDetail';
 import ItemDetailImage from './ItemDetailImage';
 

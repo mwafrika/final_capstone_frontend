@@ -7,10 +7,12 @@ import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
 import BikeDetails from './components/ItemDetail';
 import NotFound from './components/NotFound';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route exact path='/' exactly element={<Bikes />} />
         <Route path='/reservations' />

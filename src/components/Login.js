@@ -26,37 +26,14 @@ const Login = () => {
     <section className='authentication-section'>
       <h1 className='login-page-heading'>Login</h1>
       <form id='login-form' onSubmit={handleLogin}>
-        <input
-          onChange={handleOnChange}
-          className='input-field'
-          type='email'
-          name='email'
-          id='signup-email-field'
-          placeholder='Email'
-          required
-        />
-        <input
-          onChange={handleOnChange}
-          className='input-field'
-          type='password'
-          name='password'
-          id='login-password-field'
-          placeholder='Password'
-          required
-        />
+        <input onChange={handleOnChange} className='input-field' type='email' name='email' id='signup-email-field' placeholder='Email' required />
+        <input onChange={handleOnChange} className='input-field' type='password' name='password' id='login-password-field' placeholder='Password' required />
         <small className='register-form-error-msg'>{}</small>
         <span className='login-to-register'>
           Not a member?
-          <NavLink className='login-to-register-link' to='/Registration'>
-            Register
-          </NavLink>
+          <NavLink className='login-to-register-link' to='/Registration'>Register</NavLink>
         </span>
-        <input
-          onChange={handleOnChange}
-          className='form-submit-btn'
-          type='submit'
-          value='Login'
-        />
+        <input onChange={handleOnChange} className='form-submit-btn bg-lime-300 py-4 mt-4' type='submit' value='Login' />
       </form>
     </section>
   );
