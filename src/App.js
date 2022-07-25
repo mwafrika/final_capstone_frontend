@@ -13,11 +13,11 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" exactly element={<Bikes />} />
-        <Route path="/Reservations" component={Reservations} />
+        <Route path="/reservations" component={Reservations} />
         <Route path="/add_bike" element={<AddBike />} />
         <Route path="/delete_bike" element={<DeleteBike />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Registration" element={<Signup />} />
+        <Route path="/registration" element={<Signup />} />
       </Routes>
     </>
   );
