@@ -1,77 +1,97 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getLocalStorage } from '../helpers/localStore';
-import { postBikesToApi } from '../redux/Bikes/bikes';
+import { useNavigate } from 'react-router-dom';
+import { newBike } from '../redux/actions/bikes';
 
 const BikeForm = () => {
-  const [name, setName] = useState('');
-  const [model, setModel] = useState('');
-  const [price, setPrice] = useState(0);
-  const [imageUrl, setImageUrl] = useState('');
+  const [car, setCar] = useState({
+    make: '',
+    model: '',
+    description: '',
+    image: '',
+    is_available: true,
+    price: '',
+  });
+
+  const handleChange = (e) => {
+    setCar({
+      ...car,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const data = {
-      name,
-      model,
-      price,
-      user_id: getLocalStorage().user_id,
-      image_url: imageUrl,
-    };
-    dispatch(postBikesToApi(data));
-
-    e.target.reset();
+    dispatch(newBike(car, navigate, e));
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit} className="add-bike-form">
+    <section className='form-page'>
+      <h1 className='text-center'>Create and Add New Bikes </h1>
+      <form
+        onSubmit={handleSubmit}
+        className='add-bike-form flex flex-col w-[40%] mx-auto mt-10'
+      >
         <input
-          className="add-bike-input-field input-field"
-          placeholder="Bike Name"
-          type="text"
-          name="name"
-          minLength="1"
-          maxLength="100"
-          onChange={(e) => setName(e.target.value)}
+          className='add-bike-input-field input-field'
+          placeholder='Bike Name'
+          type='text'
+          name='make'
+          minLength='1'
+          maxLength='100'
+          onChange={handleChange}
+          value={car.make}
           required
         />
         <input
-          className="add-bike-input-field input-field"
-          placeholder="Bike Model"
-          type="text"
-          name="model"
-          minLength="1"
-          maxLength="100"
-          onChange={(e) => setModel(e.target.value)}
+          className='add-bike-input-field input-field'
+          placeholder='Bike Model'
+          type='text'
+          name='model'
+          minLength='1'
+          maxLength='100'
+          onChange={handleChange}
+          value={car.model}
           required
         />
         <input
-          className="add-bike-input-field input-field"
-          placeholder="Per Day Amount"
-          type="number"
-          name="price"
-          minLength="1"
-          maxLength="100"
-          onChange={(e) => setPrice(e.target.value)}
+          className='add-bike-input-field input-field'
+          type='file'
+          id='image'
+          name='image'
+          placeholder='Image'
+          value={car.image}
+          onChange={handleChange}
           required
         />
+
         <input
-          className="add-bike-input-field input-field"
-          type="text"
-          name="image"
-          id="bike_image"
-          placeholder="Bike Image Link"
-          onChange={(e) => setImageUrl(e.target.value)}
+          className='add-bike-input-field input-field'
+          placeholder='Price per hour'
+          type='text'
+          name='price'
+          value={car.price}
+          minLength='1'
+          maxLength='100'
+          onChange={handleChange}
           required
         />
-        <button
-          className="add-bike-btn"
-          type="submit"
-        >
+
+        <textarea
+          className='add-bike-input-field input-field'
+          placeholder='Description'
+          type='text'
+          name='description'
+          value={car.description}
+          minLength='1'
+          maxLength='100'
+          onChange={handleChange}
+          required
+        />
+        <button className='add-bike-btn bg-lime-300 py-4 mt-4' type='submit'>
           Create Bike
         </button>
       </form>

@@ -1,23 +1,26 @@
-import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Bikes from './components/main-page';
-import Reservations from './redux/Reservations/reservation';
 import Login from './components/Login';
+import './App.css';
+import Bikes from './components/main-page';
 import Signup from './components/Signup';
-import AddBike from './components/AddBike';
-import DeleteBike from './components/DeleteBike';
+import AddBike from './components/BikeForm';
+import BikeList from './components/BikeList';
+import BikeDetails from './components/ItemDetail';
+import NotFound from './components/NotFound';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
-        <Route exact path="/" exactly element={<Bikes />} />
-        <Route path="/reservations" component={Reservations} />
-        <Route path="/add_bike" element={<AddBike />} />
-        <Route path="/delete_bike" element={<DeleteBike />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Signup />} />
+        <Route exact path='/' exactly element={<Bikes />} />
+        <Route path='/add_bike' element={<AddBike />} />
+        <Route path='/bikes/:id' element={<BikeDetails />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/bikes' element={<BikeList />} />
+        <Route path='/registration' element={<Signup />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   );
