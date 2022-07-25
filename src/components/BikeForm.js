@@ -29,7 +29,8 @@ const BikeForm = () => {
   };
 
   return (
-    <section>
+    <section className='form-page'>
+      <h1 className='text-center'>Create and Add New Bikes </h1>
       <form
         onSubmit={handleSubmit}
         className='add-bike-form flex flex-col w-[40%] mx-auto mt-10'

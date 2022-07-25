@@ -21,7 +21,7 @@ export const login = (userData, location) => (dispatch) => {
       localStorage.setItem('token', result.split(' ')[1]);
       localStorage.setItem('user', JSON.stringify(response.data));
 
-      location('/');
+      location('/bikes');
     })
     .catch((error) => {
       dispatch({
