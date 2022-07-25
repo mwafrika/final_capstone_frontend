@@ -15,12 +15,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path='/' exactly element={<Bikes />} />
-        <Route path='/reservations' />
         <Route path='/add_bike' element={<AddBike />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/bikes' element={<BikeList />} />
         <Route path='/bikes/:id' element={<BikeDetails />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/bikes' element={<BikeList />} />
+        <Route path='/registration' element={<Signup />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
