@@ -6,23 +6,32 @@ import {
   MdOutlineLanguage,
   MdOutlineBuildCircle,
 } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/motor-logo.png';
 
-export default function navigation() {
+export default function navigation(props) {
+  const { toogleMenu } = props;
   return (
     <>
       <div className='row-span-2 flex justify-center'>
         <img
           className='self-center'
-          src={`${process.env.PUBLIC_URL}/assets/images/logo_transparent.png`}
+          src={logo}
           alt='Logo'
         />
       </div>
       <div className='row-span-4 flex justify-center'>
-        <div className='self-center'>
-          <ul className='flex flex-col gap-1'>
-            <li className='active p-1'>MODELS</li>
-            <li className='p-2'>LIFESTYLE</li>
-            <li className='p-2'>TEST DRIVE</li>
+        <div className='self-center w-full'>
+          <ul className='flex flex-col gap-3'>
+            <li className='active p-1 flex justify-center hover:bg-main'>
+              <NavLink to='/home' className='hover:text-white' onClick={toogleMenu}>Bikes</NavLink>
+            </li>
+            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/bikes' onClick={toogleMenu}>Add Bike</NavLink>
+            </li>
+            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/add-bike' onClick={toogleMenu}>Reservations</NavLink>
+            </li>
           </ul>
         </div>
       </div>
