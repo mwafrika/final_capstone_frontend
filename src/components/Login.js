@@ -33,7 +33,7 @@ const Login = () => {
           Not a member?
           <NavLink className='login-to-register-link' to='/Registration'>Register</NavLink>
         </span>
-        <input onChange={handleOnChange} className='form-submit-btn bg-lime-300 py-4 mt-4' type='submit' value='Login' />
+        <button className='form-submit-btn bg-lime-300 py-4 mt-4' type='submit'>Login</button>
       </form>
     </section>
   );
