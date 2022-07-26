@@ -4,6 +4,9 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    colors: {
+      'main': '#98be20'
+    },
     sm: { min: '640px', max: '767px' },
     // => @media (min-width: 640px and max-width: 767px) { ... }
 
@@ -20,17 +23,17 @@ module.exports = {
     // => @media (min-width: 1536px) { ... }
     extend: {
       screens: {
-        xxxs: {
-          min: '320px',
-          max: '374px',
-        },
-        xxs: {
-          min: '375px',
-          max: '424px',
-        },
+        // xxxs: {
+        //   min: '320px',
+        //   max: '374px',
+        // },
+        // xxs: {
+        //   min: '375px',
+        //   max: '424px',
+        // },
         xs: {
-          min: '425px',
-          max: '639px',
+          min: '325px',
+          max: '700px',
         },
       },
       width: {
