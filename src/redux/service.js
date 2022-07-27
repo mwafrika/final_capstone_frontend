@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'https://yamaha-motor.herokuapp.com';
 
 export const signup = async (user) => {
   const response = await axios.post(`${BASE_URL}/users`, {
