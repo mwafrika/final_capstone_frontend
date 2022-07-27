@@ -6,6 +6,8 @@ import {
   MdOutlineLanguage,
   MdOutlineBuildCircle,
 } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/motor-logo.png';
 
 export default function navigation() {
   return (
@@ -13,16 +15,28 @@ export default function navigation() {
       <div className='row-span-2 flex justify-center'>
         <img
           className='self-center'
-          src={`${process.env.PUBLIC_URL}/assets/images/logo_transparent.png`}
+          src={logo}
           alt='Logo'
         />
       </div>
       <div className='row-span-4 flex justify-center'>
-        <div className='self-center'>
-          <ul className='flex flex-col gap-1'>
-            <li className='active p-1'>MODELS</li>
-            <li className='p-2'>LIFESTYLE</li>
-            <li className='p-2'>TEST DRIVE</li>
+        <div className='self-center w-full'>
+          <ul className='flex flex-col gap-3'>
+            <li className='activeflex justify-center hover:bg-main'>
+              <NavLink to='/bikes' className='w-full p-1 flex justify-center'>Bikes</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/add-bike' className='w-full p-1 flex justify-center'>Add Bike</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/reservations' className='w-full p-1 flex justify-center'>Reservations</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/login' className='w-full p-1 flex justify-center'>Login</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/registration' className='w-full p-1 flex justify-center'>Registration</NavLink>
+            </li>
           </ul>
         </div>
       </div>
