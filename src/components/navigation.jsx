@@ -6,11 +6,19 @@ import {
   MdOutlineLanguage,
   MdOutlineBuildCircle,
 } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/actions/user';
 import logo from '../assets/images/motor-logo.png';
 
-export default function navigation(props) {
-  const { toogleMenu } = props;
+export default function navigation() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    dispatch(logout(navigate));
+  }
+
   return (
     <>
       <div className='row-span-2 flex justify-center'>
@@ -23,17 +31,29 @@ export default function navigation(props) {
       <div className='row-span-4 flex justify-center'>
         <div className='self-center w-full'>
           <ul className='flex flex-col gap-3'>
-            <li className='p-1 flex justify-center hover:bg-main'>
-              <NavLink to='/home' className='hover:text-white' onClick={toogleMenu}>Home</NavLink>
+            <li className='activeflex justify-center hover:bg-main'>
+              <NavLink to='/bikes' className='w-full p-1 flex justify-center'>Bikes</NavLink>
             </li>
-            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
-              <NavLink to='/bikes' onClick={toogleMenu}>Bikes List</NavLink>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/add-bike' className='w-full p-1 flex justify-center'>Add Bike</NavLink>
             </li>
-            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
-              <NavLink to='/add_bike' onClick={toogleMenu}>Add Bike</NavLink>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/reservations' className='w-full p-1 flex justify-center'>Reservations</NavLink>
             </li>
-            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
-              <NavLink to='/add-bike' onClick={toogleMenu}>Reservations</NavLink>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/login' className='w-full p-1 flex justify-center'>Login</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/registration' className='w-full p-1 flex justify-center'>Registration</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <button
+                type='button'
+                onClick={() => handleLogout()}
+                className='w-full p-1 flex justify-center'
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </div>

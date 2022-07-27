@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'main': '#98be20'
+      main: '#98be20',
     },
     sm: { min: '640px', max: '767px' },
     // => @media (min-width: 640px and max-width: 767px) { ... }

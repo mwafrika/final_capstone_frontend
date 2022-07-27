@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Login from './components/Login';
 import './App.css';
+import MainPage from './components/main-page';
+import Navigation from './components/navigation';
 import Signup from './components/Signup';
 import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
-import BikeDetails from './components/BikeDetails';
+import BikeDetails from './components/ItemDetail';
 import NotFound from './components/NotFound';
-import MainPage from './components/main-page';
-import Navigation from './components/navigation';
+import Login from './components/Login';
 
 function App() {
   const [navMenu, setNavMenu] = useState(false);
@@ -39,14 +39,14 @@ function App() {
         </div>
       </div>
       <Routes>
-        <Route exact path='/' exactly element={<MainPage />} />
-        <Route exact path='/home' exactly element={<MainPage />} />
-        <Route path='/add_bike' element={<AddBike />} />
-        <Route path='/bikes/:id' element={<BikeDetails />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/bikes' element={<BikeList />} />
-        <Route path='/registration' element={<Signup />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={<MainPage />}>
+          <Route path='add-bike' element={<AddBike />} />
+          <Route path='bikes/:id' element={<BikeDetails />} />
+          <Route path='login' element={<Login />} />
+          <Route path='bikes' element={<BikeList />} />
+          <Route path='registration' element={<Signup />} />
+          <Route path='*' element={<NotFound />} />
+        </Route>
       </Routes>
     </>
   );
