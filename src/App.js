@@ -1,12 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Login from './components/Login';
 import './App.css';
 import Signup from './components/Signup';
 import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
-import BikeDetails from './components/ItemDetail';
+import BikeDetails from './components/BikeDetails';
 import NotFound from './components/NotFound';
 import MainPage from './components/main-page';
 import Navigation from './components/navigation';

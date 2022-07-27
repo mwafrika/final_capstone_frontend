@@ -23,11 +23,14 @@ export default function navigation(props) {
       <div className='row-span-4 flex justify-center'>
         <div className='self-center w-full'>
           <ul className='flex flex-col gap-3'>
-            <li className='active p-1 flex justify-center hover:bg-main'>
-              <NavLink to='/home' className='hover:text-white' onClick={toogleMenu}>Bikes</NavLink>
+            <li className='p-1 flex justify-center hover:bg-main'>
+              <NavLink to='/home' className='hover:text-white' onClick={toogleMenu}>Home</NavLink>
             </li>
             <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
-              <NavLink to='/bikes' onClick={toogleMenu}>Add Bike</NavLink>
+              <NavLink to='/bikes' onClick={toogleMenu}>Bikes List</NavLink>
+            </li>
+            <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
+              <NavLink to='/add_bike' onClick={toogleMenu}>Add Bike</NavLink>
             </li>
             <li className='p-1 flex justify-center hover:bg-main hover:text-white'>
               <NavLink to='/add-bike' onClick={toogleMenu}>Reservations</NavLink>
