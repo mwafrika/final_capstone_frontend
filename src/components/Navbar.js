@@ -21,7 +21,7 @@ import logo from '../assets/images/motor-logo.png';
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const loginStatus = false;
+  const loginStatus = true;
   const sidebarData = [
     {
       id: 1, path: '/add_bike', title: 'Add Bike', icon: <FaMotorcycle />, cName: 'nav-text',
