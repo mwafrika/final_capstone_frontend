@@ -6,10 +6,19 @@ import {
   MdOutlineLanguage,
   MdOutlineBuildCircle,
 } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/actions/user';
 import logo from '../assets/images/motor-logo.png';
 
 export default function navigation() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    dispatch(logout(navigate));
+  }
+
   return (
     <>
       <div className='row-span-2 flex justify-center'>
@@ -36,6 +45,15 @@ export default function navigation() {
             </li>
             <li className='flex justify-center hover:bg-main hover:text-white'>
               <NavLink to='/registration' className='w-full p-1 flex justify-center'>Registration</NavLink>
+            </li>
+            <li className='flex justify-center hover:bg-main hover:text-white'>
+              <button
+                type='button'
+                onClick={() => handleLogout()}
+                className='w-full p-1 flex justify-center'
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </div>
