@@ -51,6 +51,7 @@ export const signup = (userData, location) => (dispatch) => {
 export const logout = (navigate) => (dispatch) => {
   if (localStorage.getItem('token')) {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     dispatch({
       type: actionTypes.USER_LOGOUT_SUCCESS,
     });

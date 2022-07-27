@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { ThreeDots } from 'react-loader-spinner';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signup } from '../redux/actions/user';
 
 const Signup = () => {
+  const { error, loading } = useSelector((state) => state.user);
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
@@ -32,6 +34,25 @@ const Signup = () => {
                   md:w-1/2'
         onSubmit={handleLogin}
       >
+        { loading && (
+          <div className='relative w-32'>
+            <div className='absolute insex-x-0 top-2'>
+              <ThreeDots
+                height='180'
+                width='180'
+                radius='3'
+                color='#98be20'
+                ariaLabel='three-dots-loading'
+                wrapperStyle
+                wrapperClass
+              />
+            </div>
+          </div>
+        )}
+
+        { error && (
+          <p className='text-red-500 font-italic'>{error}</p>
+        )}
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='email' name='email' id='signup-email-field' placeholder='Email' required />
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main  focus:border-main' type='password' name='password' id='signup-password-confirmation-field' placeholder='Password' required minLength='8' />
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main  focus:border-main' type='password' name='confirm-password' id='signup-password-field' placeholder='Confirm Password' minLength='8' required />

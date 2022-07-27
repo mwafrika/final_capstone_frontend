@@ -9,8 +9,13 @@ const actionTypes = {
 
 const user = localStorage.getItem('user');
 const initialState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null };
+  ? {
+    isLoggedIn: true, user, error: null, loading: false,
+  }
+  : {
+    isLoggedIn: false, user: null, error: null, laoding: true,
+  };
+console.log(initialState);
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,12 +24,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: true,
         user: action.payload,
+        loading: false,
       };
     case actionTypes.USER_LOGIN_FAILURE:
       return {
         ...state,
         isLoggedIn: false,
         user: null,
+        error: action.payload,
+        laoding: false,
       };
     case actionTypes.USER_LOGOUT_SUCCESS:
       return {
@@ -43,12 +51,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: true,
         user: action.payload,
+        loading: false,
       };
     case actionTypes.USER_REGISTER_FAILURE:
       return {
         ...state,
         isLoggedIn: false,
         user: null,
+        laoding: false,
+        error: action.payload,
       };
     default:
       return state;
