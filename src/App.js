@@ -9,7 +9,7 @@ import Navigation from './components/navigation';
 import Signup from './components/Signup';
 import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
-import BikeDetails from './components/ItemDetail';
+import BikeDetails from './components/BikeDetails';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
 
