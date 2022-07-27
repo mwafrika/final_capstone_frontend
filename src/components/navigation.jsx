@@ -50,7 +50,7 @@ export default function navigation() {
               <button
                 type='button'
                 onClick={() => handleLogout()}
-                className='w-full p-1 flex justify-center'
+                className='w-full p-2 flex justify-center'
               >
                 Logout
               </button>
