@@ -23,17 +23,17 @@ const Login = () => {
     }));
   };
   return (
-    <section className='authentication-section'>
-      <h1 className='login-page-heading'>Login</h1>
-      <form id='login-form' onSubmit={handleLogin}>
-        <input onChange={handleOnChange} className='input-field' type='email' name='email' id='signup-email-field' placeholder='Email' required />
-        <input onChange={handleOnChange} className='input-field' type='password' name='password' id='login-password-field' placeholder='Password' required />
+    <section className='col-span-7 xs:col-span-9 flex flex-col justify-center items-center gap-y-3'>
+      <h1 className='register-page-heading leading-10 text-main'>Login</h1>
+      <form className='flex flex-col items-center gap-y-2 p-2 w-full xs:w-full' onSubmit={handleLogin}>
+        <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='email' name='email' id='signup-email-field' placeholder='Email' required />
+        <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='password' name='password' id='login-password-field' placeholder='Password' required />
         <small className='register-form-error-msg'>{}</small>
-        <span className='login-to-register'>
+        <span className='flex gap-x-3 text-slate-900'>
           Not a member?
-          <NavLink className='login-to-register-link' to='/Registration'>Register</NavLink>
+          <NavLink className='text-main' to='/registration'>Register</NavLink>
         </span>
-        <button className='form-submit-btn bg-lime-300 py-4 mt-4' type='submit'>Login</button>
+        <button className='w-full sm:w-3/4 border-2 p-y-5 bg-main text-white h-10' type='submit'>Login</button>
       </form>
     </section>
   );
