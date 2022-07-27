@@ -10,12 +10,17 @@ const actionTypes = {
 const user = localStorage.getItem('user');
 const initialState = user
   ? {
-    isLoggedIn: true, user, error: null, loading: false,
+    isLoggedIn: true,
+    user,
+    error: null,
+    loading: false,
   }
   : {
-    isLoggedIn: false, user: null, error: null, laoding: true,
+    isLoggedIn: false,
+    user: null,
+    error: null,
+    laoding: true,
   };
-console.log(initialState);
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
