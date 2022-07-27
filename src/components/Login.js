@@ -23,9 +23,14 @@ const Login = () => {
     }));
   };
   return (
-    <section className='col-span-7 xs:col-span-9 flex flex-col justify-center items-center gap-y-3'>
+    <div className='col-span-7 xs:col-span-9 flex flex-col justify-center items-center gap-y-3'>
       <h1 className='register-page-heading leading-10 text-main'>Login</h1>
-      <form className='flex flex-col items-center gap-y-2 p-2 w-full xs:w-full' onSubmit={handleLogin}>
+      <form
+        className='flex flex-col items-center
+                   gap-y-2 p-2 w-full xs:w-full
+                   md:w-1/2'
+        onSubmit={handleLogin}
+      >
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='email' name='email' id='signup-email-field' placeholder='Email' required />
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='password' name='password' id='login-password-field' placeholder='Password' required />
         <small className='register-form-error-msg'>{}</small>
@@ -35,7 +40,7 @@ const Login = () => {
         </span>
         <button className='w-full sm:w-3/4 border-2 p-y-5 bg-main text-white h-10' type='submit'>Login</button>
       </form>
-    </section>
+    </div>
   );
 };
 
