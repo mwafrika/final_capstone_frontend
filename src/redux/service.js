@@ -22,7 +22,6 @@ export const login = async (user) => {
       password: user.password,
     },
   });
-
   return response;
 };
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { ThreeDots } from 'react-loader-spinner';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signup } from '../redux/actions/user';
 
 const Signup = () => {
+  const { error, loading } = useSelector((state) => state.user);
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
@@ -75,6 +77,27 @@ const Signup = () => {
           required
           value={userSignup.bio}
         />
+
+        { loading && (
+          <div className='relative w-32'>
+            <div className='absolute insex-x-0 top-2'>
+              <ThreeDots
+                height='180'
+                width='180'
+                radius='3'
+                color='#98be20'
+                ariaLabel='three-dots-loading'
+                wrapperStyle
+                wrapperClass
+              />
+            </div>
+          </div>
+        )}
+
+        { error && (
+          <p className='text-red-500 font-italic'>{error}</p>
+        )}
+
         <small className='register-form-error-msg'>{}</small>
         <p className='flex justify-center w-full'>
           Already a member?

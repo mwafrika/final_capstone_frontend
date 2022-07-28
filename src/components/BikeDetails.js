@@ -13,7 +13,7 @@ const BikeDetails = () => {
   useEffect(() => {
     dispatch(fetchbike(idBike));
   }, []);
-  console.log(bike, 'bike details');
+
   return (
     <>
       <div className='bike_container' key={bike.id}>

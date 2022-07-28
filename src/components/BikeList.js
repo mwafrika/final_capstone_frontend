@@ -7,7 +7,6 @@ import './BikeList.scss';
 const BikeList = () => {
   const dispatch = useDispatch();
   const { bikes } = useSelector((state) => state.bike);
-  // console.log(bikes, 'check bikes');
   useEffect(() => {
     dispatch(fetchbikes());
   }, []);
