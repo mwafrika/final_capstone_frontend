@@ -30,7 +30,8 @@ const BikeForm = () => {
 
   return (
     <>
-      <div className='col-span-4 grid grid-rows-8
+      <div
+        className='col-span-4 grid grid-rows-8
                         sm:col-span-6 md:col-span-6
                         xs:col-span-7'
       >
@@ -96,7 +97,10 @@ const BikeForm = () => {
               onChange={handleChange}
               required
             />
-            <button className='add-bike-btn bg-main text-white py-4 mt-4' type='submit'>
+            <button
+              className='add-bike-btn bg-main text-white py-4 mt-4'
+              type='submit'
+            >
               Create Bike
             </button>
           </form>

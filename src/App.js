@@ -23,7 +23,11 @@ function App() {
     <>
       <div className={`sm:hidden ${navMenu ? 'hidden' : 'static'}`}>
         <div className='absolute top-3 left-3 w-[190px]'>
-          <AiOutlineMenu size={30} color='#98be20' onClick={() => toogleMenu()} />
+          <AiOutlineMenu
+            size={30}
+            color='#98be20'
+            onClick={() => toogleMenu()}
+          />
         </div>
       </div>
       <div className={`sm:hidden ${navMenu ? 'static' : 'hidden'}`}>
@@ -31,7 +35,11 @@ function App() {
           <div className='grid grid-rows-8 h-full bg-white border-r-2'>
             <div className='relative'>
               <div className='absolute top-3 right-3'>
-                <AiOutlineClose size={30} color='#98be20' onClick={() => toogleMenu()} />
+                <AiOutlineClose
+                  size={30}
+                  color='#98be20'
+                  onClick={() => toogleMenu()}
+                />
               </div>
             </div>
             <Navigation toogleMenu={toogleMenu} /> {/* eslint-disable-line */}

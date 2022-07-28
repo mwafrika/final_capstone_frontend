@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchbikes } from '../redux/actions/bikes';
 import Bike from './Bike';
 import './BikeList.scss';
@@ -7,7 +7,6 @@ import './BikeList.scss';
 const BikeList = () => {
   const dispatch = useDispatch();
   const { bikes } = useSelector((state) => state.bike);
-
   useEffect(() => {
     dispatch(fetchbikes());
   }, []);
@@ -21,7 +20,6 @@ const BikeList = () => {
           <Bike bikes={bikes} />
         </div>
       </div>
-
     </>
   );
 };
