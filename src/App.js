@@ -30,7 +30,7 @@ function App() {
           />
         </div>
       </div>
-      <div className={`sm:hidden ${navMenu ? 'static' : 'hidden'}`}>
+      <div className={`overflow-hidden sm:hidden ${navMenu ? 'static' : 'hidden'}`}>
         <div className='absolute top-0 left-0 h-full'>
           <div className='grid grid-rows-8 h-full bg-white border-r-2'>
             <div className='relative'>
