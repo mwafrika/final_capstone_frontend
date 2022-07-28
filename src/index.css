@@ -18,9 +18,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   box-sizing: border-box;
-  overflow: hidden
+  overflow: hidden;
 }
 
 code {
@@ -32,4 +31,3 @@ code {
     'Courier New',
     monospace;
 }
-
