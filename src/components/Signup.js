@@ -6,7 +6,6 @@ import { signup } from '../redux/actions/user';
 
 const Signup = () => {
   const { error, loading } = useSelector((state) => state.user);
-  console.log('loading', loading);
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
