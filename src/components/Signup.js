@@ -5,8 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { signup } from '../redux/actions/user';
 
 const Signup = () => {
-  const { error, loading } = useSelector((state) => state.user);
-  console.log('loading', loading);
+  const { errorSignup = null, loadingSignup = false } = useSelector((state) => state.user);
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
@@ -37,12 +36,18 @@ const Signup = () => {
                   md:w-1/2'
         onSubmit={handleLogin}
       >
+
+        { errorSignup && (
+          <div className='w-3/4'>
+            <p className='font-italic text-red-500'>Username/Email already exist</p>
+          </div>
+        )}
         <input
           onChange={handleOnChange}
           className='w-full sm:w-3/4 border-1 border-main focus:border-main'
           type='text'
           name='username'
-          id='signup-email-field'
+          id='signup-username-field'
           placeholder='Username'
           required
           value={userSignup.username}
@@ -73,13 +78,13 @@ const Signup = () => {
           className='w-full sm:w-3/4 border-1 border-main focus:border-main'
           type='text'
           name='bio'
-          id='signup-email-field'
+          id='signup-bio-field'
           placeholder='Bio'
           required
           value={userSignup.bio}
         />
 
-        { loading && (
+        { loadingSignup && (
           <div className='relative w-32'>
             <div className='absolute insex-x-0 -top-16'>
               <ThreeDots
@@ -93,10 +98,6 @@ const Signup = () => {
               />
             </div>
           </div>
-        )}
-
-        { error && (
-          <p className='text-red-500 font-italic'>{error}</p>
         )}
 
         <small className='register-form-error-msg'>{}</small>

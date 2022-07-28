@@ -7,6 +7,7 @@ const actionTypes = {
   USER_LOGOUT_SUCCESS: 'USER_LOGOUT_SUCCESS',
   USER_LOGOUT_FAILURE: 'USER_LOGOUT_FAILURE',
   USER_REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
+  USER_REGISTER_REQUEST: 'USER_REGISTER_REQUEST',
   USER_REGISTER_FAILURE: 'USER_REGISTER_FAILURE',
 };
 
@@ -37,7 +38,7 @@ export const login = (userData, location) => (dispatch) => {
 
 export const signup = (userData, location) => (dispatch) => {
   dispatch({
-    type: actionTypes.USER_LOGIN_REQUEST,
+    type: actionTypes.USER_REGISTER_REQUEST,
   });
   API.signup(userData)
     .then((user) => {
