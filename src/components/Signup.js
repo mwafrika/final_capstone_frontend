@@ -6,6 +6,7 @@ import { signup } from '../redux/actions/user';
 
 const Signup = () => {
   const { error, loading } = useSelector((state) => state.user);
+  console.log('loading', loading);
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
@@ -80,7 +81,7 @@ const Signup = () => {
 
         { loading && (
           <div className='relative w-32'>
-            <div className='absolute insex-x-0 top-2'>
+            <div className='absolute insex-x-0 -top-16'>
               <ThreeDots
                 height='180'
                 width='180'

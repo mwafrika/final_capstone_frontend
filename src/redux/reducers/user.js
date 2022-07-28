@@ -1,9 +1,11 @@
 const actionTypes = {
   USER_LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
+  USER_LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
   USER_LOGIN_FAILURE: 'USER_LOGIN_FAILURE',
   USER_LOGOUT_SUCCESS: 'USER_LOGOUT_SUCCESS',
   USER_LOGOUT_FAILURE: 'USER_LOGOUT_FAILURE',
   USER_REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
+  USER_REGISTER_REQUEST: 'USER_REGISTER_REQUEST',
   USER_REGISTER_FAILURE: 'USER_REGISTER_FAILURE',
 };
 
@@ -19,7 +21,7 @@ const initialState = user
     isLoggedIn: false,
     user: null,
     error: null,
-    laoding: true,
+    laoding: false,
   };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +32,11 @@ const reducer = (state = initialState, action) => {
         isLoggedIn: true,
         user: action.payload,
         loading: false,
+      };
+    case actionTypes.USER_LOGIN_REQUEST:
+      return {
+        ...state,
+        loading: true,
       };
     case actionTypes.USER_LOGIN_FAILURE:
       return {
@@ -44,6 +51,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: false,
         user: null,
+        loading: false,
       };
     case actionTypes.USER_LOGOUT_FAILURE:
       return {
@@ -57,6 +65,11 @@ const reducer = (state = initialState, action) => {
         isLoggedIn: true,
         user: action.payload,
         loading: false,
+      };
+    case actionTypes.USER_REGISTER_REQUEST:
+      return {
+        ...state,
+        loading: true,
       };
     case actionTypes.USER_REGISTER_FAILURE:
       return {

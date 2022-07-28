@@ -20,7 +20,7 @@ export const newBike = (bike, navigate, e) => (dispatch) => {
         type: actionTypes.BIKE_CREATE_SUCCESS,
         payload: bike,
       });
-      navigate('/');
+      navigate('/bikes');
     })
     .catch((error) => {
       dispatch({
