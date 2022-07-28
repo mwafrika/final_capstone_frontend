@@ -7,6 +7,8 @@ const Signup = () => {
   const [userSignup, setSignup] = useState({
     email: '',
     password: '',
+    bio: '',
+    username: '',
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,15 +34,60 @@ const Signup = () => {
                   md:w-1/2'
         onSubmit={handleLogin}
       >
-        <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='email' name='email' id='signup-email-field' placeholder='Email' required />
-        <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main  focus:border-main' type='password' name='password' id='signup-password-confirmation-field' placeholder='Password' required minLength='8' />
-        <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main  focus:border-main' type='password' name='confirm-password' id='signup-password-field' placeholder='Confirm Password' minLength='8' required />
+        <input
+          onChange={handleOnChange}
+          className='w-full sm:w-3/4 border-1 border-main focus:border-main'
+          type='text'
+          name='username'
+          id='signup-email-field'
+          placeholder='Username'
+          required
+          value={userSignup.username}
+        />
+        <input
+          onChange={handleOnChange}
+          className='w-full sm:w-3/4 border-1 border-main focus:border-main'
+          type='email'
+          name='email'
+          id='signup-email-field'
+          placeholder='Email'
+          required
+          value={userSignup.email}
+        />
+        <input
+          onChange={handleOnChange}
+          className='w-full sm:w-3/4 border-1 border-main  focus:border-main'
+          type='password'
+          name='password'
+          id='signup-password-confirmation-field'
+          placeholder='Password'
+          required
+          minLength='6'
+          value={userSignup.password}
+        />
+        <textarea
+          onChange={handleOnChange}
+          className='w-full sm:w-3/4 border-1 border-main focus:border-main'
+          type='text'
+          name='bio'
+          id='signup-email-field'
+          placeholder='Bio'
+          required
+          value={userSignup.bio}
+        />
         <small className='register-form-error-msg'>{}</small>
         <p className='flex justify-center w-full'>
           Already a member?
-          <NavLink className='text-main' to='/login'>Login</NavLink>
+          <NavLink className='text-main' to='/login'>
+            Login
+          </NavLink>
         </p>
-        <button className='w-full sm:w-3/4 border-2 bg-main text-white h-10' type='submit'>Signup</button>
+        <button
+          className='w-full sm:w-3/4 border-2 bg-main text-white h-10'
+          type='submit'
+        >
+          Signup
+        </button>
       </form>
     </div>
   );

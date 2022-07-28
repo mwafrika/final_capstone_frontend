@@ -1,16 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-// import { fetchbikes } from '../redux/actions/bikes';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchbikes } from '../redux/actions/bikes';
 import Bike from './Bike';
 import './BikeList.scss';
 
 const BikeList = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { bikes } = useSelector((state) => state.bike);
   // console.log(bikes, 'check bikes');
-  // useEffect(() => {
-  //   dispatch(fetchbikes());
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchbikes());
+  }, []);
 
   return (
     <>
