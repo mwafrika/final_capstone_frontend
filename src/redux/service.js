@@ -1,12 +1,8 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
 const BASE_URL = 'https://yamaha-motor.herokuapp.com';
 // const BASE_URL = 'http://localhost:3000';
-=======
-// const BASE_URL = 'https://yamaha-motor.herokuapp.com';
-const BASE_URL = 'http://localhost:3000';
->>>>>>> 415aa54357fdfd9547725a4aa36295417dc2b31b
+
 
 export const signup = async (user) => {
   const response = await axios.post(`${BASE_URL}/users`, {
