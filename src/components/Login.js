@@ -5,7 +5,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import { login } from '../redux/actions/user';
 
 const Login = () => {
-  const { error, loading } = useSelector((state) => state.user);
+  const { errorLogin = null, loadingLogin = false } = useSelector((state) => state.user);
   const [userLogin, setLogin] = useState({
     email: '',
     password: '',
@@ -33,7 +33,7 @@ const Login = () => {
                    md:w-1/2'
         onSubmit={handleLogin}
       >
-        { loading && (
+        { loadingLogin && (
           <div className='relative w-32'>
             <div className='absolute insex-x-0 top-2'>
               <ThreeDots
@@ -49,7 +49,7 @@ const Login = () => {
           </div>
         )}
 
-        { error && (
+        { errorLogin && (
           <p className='text-red-500 font-italic'>Invalid email/password</p>
         )}
         <input onChange={handleOnChange} className='w-full sm:w-3/4 border-1 border-main focus:border-main' type='email' name='email' id='signup-email-field' placeholder='Email' required />
