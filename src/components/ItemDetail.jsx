@@ -57,7 +57,7 @@ export default function ItemDetail() {
         <div className='flex flex-col items-end pr-3 mt-5'>
           <strong>DISCOVER MORE MODELS</strong>
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/color-picker.jpeg`}
+            src={bike.image_url}
             alt='color picker'
             className='w-1/2'
           />
