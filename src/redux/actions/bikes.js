@@ -11,6 +11,8 @@ const actionTypes = {
   BIKE_UPDATE_FAILURE: 'BIKE_UPDATE_FAILURE',
   BIKE_DELETE_SUCCESS: 'BIKE_DELETE_SUCCESS',
   BIKE_DELETE_FAILURE: 'BIKE_DELETE_FAILURE',
+  RESERVE_CREATE_SUCCESS: 'RESERVE_CREATE_SUCCESS',
+  RESERVE_CREATE_FAILURE: 'RESERVE_CREATE_FAILURE',
 };
 
 export const newBike = (bike, navigate, e) => (dispatch) => {
@@ -74,6 +76,23 @@ export const deleteBike = (id, navigate) => (dispatch) => {
     .catch((error) => {
       dispatch({
         type: actionTypes.BIKE_DELETE_FAILURE,
+        payload: error,
+      });
+    });
+};
+
+export const reserveBike = (reserve, navigate) => (dispatch) => {
+  API.newReservation(reserve)
+    .then((reserve) => {
+      dispatch({
+        type: actionTypes.RESERVE_CREATE_SUCCESS,
+        payload: reserve,
+      });
+      navigate('/bikes');
+    })
+    .catch((error) => {
+      dispatch({
+        type: actionTypes.RESERVE_CREATE_FAILURE,
         payload: error,
       });
     });

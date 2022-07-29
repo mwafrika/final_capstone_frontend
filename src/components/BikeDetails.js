@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { fetchbike } from '../redux/actions/bikes';
+import { useParams, useNavigate } from 'react-router-dom';
+import { fetchbike, reserveBike } from '../redux/actions/bikes';
 import './card-details.scss';
 
 const BikeDetails = () => {
@@ -9,10 +9,20 @@ const BikeDetails = () => {
   const id = useParams();
   const idBike = Number(id.id);
   const { bike } = useSelector((state) => state.bike);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchbike(idBike));
   }, []);
+
+  function handleReserve(e) {
+    const reserve = {
+      bike_id: e.target.id,
+      city: 'Addis Ababa',
+      date_reserved: '2022-July-27',
+    };
+    dispatch(reserveBike(reserve, navigate));
+  }
 
   return (
     <>
@@ -44,11 +54,9 @@ const BikeDetails = () => {
             </li>
           </ul>
           <span className='desc_short'>Let us satisfy your desire!</span>
-          <Link to='/add_reservations'>
-            <button type='button' className='add-button'>
-              Reserve Bike
-            </button>
-          </Link>
+          <button type='button' className='add-button' id={bike.id} onClick={(e) => handleReserve(e)}>
+            Reserve
+          </button>
         </div>
       </div>
     </>

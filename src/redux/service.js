@@ -33,6 +33,21 @@ const authHeader = () => {
   return {};
 };
 
+export const newReservation = async (reservation) => {
+  const formData = new FormData();
+  formData.append('reservation[bike_id]', reservation.bike_id);
+  formData.append('reservation[city]', reservation.city);
+  formData.append('reservation[date_reserved]', reservation.date_reserved);
+  const response = await axios.post(`${BASE_URL}/reservations`, formData, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
+    },
+  });
+
+  return response.data;
+};
+
 export const createBike = async (bike, e) => {
   const formData = new FormData();
   formData.append('bike[image]', e.target.image.files[0]);
@@ -77,22 +92,6 @@ export const getBike = async (id) => {
   const response = await axios.get(`${BASE_URL}/bikes/${id}`, {
     headers: {
       'Content-Type': 'application/json',
-    },
-  });
-
-  return response.data;
-};
-
-export const newReservation = async (reservation, id) => {
-  const response = await axios.post(`${BASE_URL}/reservations`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${authHeader()}`,
-    },
-    reservation: {
-      bike_id: id,
-      date_reserved: reservation.date_reserved,
-      city: reservation.city,
     },
   });
 

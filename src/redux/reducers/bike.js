@@ -9,6 +9,8 @@ const actionTypes = {
   BIKE_UPDATE_FAILURE: 'BIKE_UPDATE_FAILURE',
   BIKE_DELETE_SUCCESS: 'BIKE_DELETE_SUCCESS',
   BIKE_DELETE_FAILURE: 'BIKE_DELETE_FAILURE',
+  RESERVE_CREATE_SUCCESS: 'RESERVE_CREATE_SUCCESS',
+  RESERVE_CREATE_FAILURE: 'RESERVE_CREATE_FAILURE',
 };
 
 const initialState = {
@@ -91,6 +93,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case actionTypes.RESERVE_CREATE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case actionTypes.RESERVE_CREATE_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: null,
       };
     default:
       return state;
