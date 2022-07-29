@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import BikeImage from '../assets/images/bike.png';
 import { deleteReservation, fetchReservations } from '../redux/actions/reservation';
 
 export default function reservationList(reservations) {
@@ -23,7 +22,7 @@ export default function reservationList(reservations) {
       key={item.id}
     >
       <div className='col-span-2 p-1 flex justify-center'>
-        <img src={BikeImage} alt='Item detail' className='sm:w-1/2' />
+        <img src={item.bike.image_url} alt='Item detail' className='sm:w-1/2' />
       </div>
       <div className='col-span-3 flex flex-col
                     p-1 sm:grid sm:grid-cols-2 sm:justify-items-end'
