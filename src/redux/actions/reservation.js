@@ -15,7 +15,6 @@ const actionTypes = {
 export const createReservation = (reservation, id) => (dispatch) => {
   API.newReservation(reservation, id)
     .then((reservation) => {
-      console.log(reservation, 'action');
       dispatch({
         type: actionTypes.RESERVATION_CREATE_SUCCESS,
         payload: reservation,
@@ -49,7 +48,6 @@ export const fetchReservations = () => (dispatch) => {
 };
 
 export const deleteReservation = (id) => (dispatch) => {
-  console.log('delete called', id);
   API.deleteReservation(id)
     .then((res) => {
       dispatch({
