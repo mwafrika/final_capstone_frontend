@@ -12,6 +12,7 @@ import BikeList from './components/BikeList';
 import BikeDetails from './components/BikeDetails';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
+import ReservationList from './components/ReservationList';
 
 function App() {
   const [navMenu, setNavMenu] = useState(false);
@@ -53,6 +54,7 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='bikes' element={<BikeList />} />
           <Route path='registration' element={<Signup />} />
+          <Route path='reservations' element={<ReservationList />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
