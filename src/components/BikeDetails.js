@@ -6,8 +6,8 @@ import './card-details.scss';
 
 const BikeDetails = () => {
   const dispatch = useDispatch();
-  const id = useParams();
-  const idBike = Number(id.id);
+  const { id } = useParams();
+  const idBike = Number(id);
   const { bike } = useSelector((state) => state.bike);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const BikeDetails = () => {
             </li>
           </ul>
           <span className='desc_short'>Let us satisfy your desire!</span>
-          <Link to='/add_reservations'>
+          <Link to={`/bikes/${idBike}/reservation`}>
             <button type='button' className='add-button'>
               Reserve Bike
             </button>
