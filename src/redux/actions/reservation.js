@@ -1,81 +1,66 @@
-const FETCH_RESERV = 'FETCH_RESERV';
-const CREATE_RESERV = 'CREATE_RESERV';
-const DELETE_DATA = 'DELETE_DATA';
-const FETCH_BIKE = 'FETCH_BIKE';
-const DELETE_BIKE = 'DELETE_BIKE';
-const ADD_BIKE = 'ADD_BIKE';
+import * as API from '../service';
 
-// Initial State
-const initialState = {
-  reservation: [],
-  bikes: [],
-};
-// Actions
-export const setData = (reservations) => ({
-  type: FETCH_RESERV,
-  payload: reservations,
-});
-
-export const createReserve = (reservation) => ({
-  type: CREATE_RESERV,
-  payload: reservation,
-});
-
-export const deleteData = (id) => ({
-  type: DELETE_DATA,
-  payload: id,
-});
-export const setBikes = (bikes) => ({
-  type: FETCH_BIKE,
-  payload: bikes,
-});
-export const deleteCar = (id) => ({
-  type: DELETE_BIKE,
-  payload: id,
-});
-export const addBike = (bike) => ({
-  type: ADD_BIKE,
-  payload: bike,
-});
-// reducer
-
-const reservationReducers = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_RESERV:
-      return {
-        ...state,
-        reservation: action.payload,
-      };
-    case DELETE_DATA:
-      return {
-        ...state,
-        reservation: state.reservation.filter(
-          (item) => item.id !== action.payload,
-        ),
-      };
-    case FETCH_BIKE:
-      return {
-        ...state,
-        bikes: action.payload,
-      };
-    case CREATE_RESERV:
-      return {
-        ...state,
-        reservation: [...state.reservation, action.payload],
-      };
-    case DELETE_BIKE:
-      return {
-        ...state,
-        bikes: state.bikes.filter((item) => item.id !== action.payload),
-      };
-    case ADD_BIKE:
-      return {
-        ...state,
-        cars: [...state.cars, action.payload],
-      };
-    default:
-      return state;
-  }
+const actionTypes = {
+  RESERVATIONS_FETCH_SUCCESS: 'RESERVATIONS_FETCH_SUCCESS',
+  RESERVATIONS_FETCH_REQUEST: 'RESERVATIONS_FETCH_REQUEST',
+  RESERVATIONS_FETCH_FAILURE: 'RESERVATIONS_FETCH_FAILURE',
+  RESERVATION_FETCH_SUCCESS: 'RESERVATION_FETCH_SUCCESS',
+  RESERVATION_FETCH_FAILURE: 'RESERVATION_FETCH_FAILURE',
+  RESERVATION_CREATE_SUCCESS: 'RESERVATION_CREATE_SUCCESS',
+  RESERVATION_CREATE_FAILURE: 'RESERVATION_CREATE_FAILURE',
+  RESERVATION_DELETE_SUCCESS: 'RESERVATION_DELETE_SUCCESS',
+  RESERVATION_DELETE_FAILURE: 'RESERVATION_DELETE_FAILURE',
 };
 
-export default reservationReducers;
+export const createReservation = (reservation, id) => (dispatch) => {
+  API.newReservation(reservation, id)
+    .then((reservation) => {
+      console.log(reservation, 'action');
+      dispatch({
+        type: actionTypes.RESERVATION_CREATE_SUCCESS,
+        payload: reservation,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: actionTypes.RESERVATION_CREATE_FAILURE,
+        payload: error,
+      });
+    });
+};
+
+export const fetchReservations = () => (dispatch) => {
+  dispatch({
+    type: actionTypes.RESERVATIONS_FETCH_REQUEST,
+  });
+  API.fetchReservations()
+    .then((reservations) => {
+      dispatch({
+        type: actionTypes.RESERVATIONS_FETCH_SUCCESS,
+        payload: reservations.data,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: actionTypes.RESERVATIONS_FETCH_FAILURE,
+        payload: error,
+      });
+    });
+};
+
+export const deleteReservation = (id) => (dispatch) => {
+  console.log('delete called', id);
+  API.deleteReservation(id)
+    .then((res) => {
+      dispatch({
+        type: actionTypes.RESERVATION_DELETE_SUCCESS,
+        payload: res,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: actionTypes.RESERVATION_DELETE_FAILURE,
+        payload: err,
+      });
+    });
+};

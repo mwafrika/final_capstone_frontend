@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://yamaha-motor.herokuapp.com';
-// const BASE_URL = 'http://localhost:4000';
+// const BASE_URL = 'https://yamaha-motor.herokuapp.com';
+const BASE_URL = 'http://localhost:4000';
 
 export const signup = async (user) => {
   const response = await axios.post(`${BASE_URL}/users`, {
@@ -75,6 +75,43 @@ export const deleteBike = async (id) => {
 
 export const getBike = async (id) => {
   const response = await axios.get(`${BASE_URL}/bikes/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return response.data;
+};
+
+export const newReservation = async (reservation, id) => {
+  const response = await axios.post(`${BASE_URL}/reservations`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
+    },
+    reservation: {
+      bike_id: id,
+      date_reserved: reservation.date_reserved,
+      city: reservation.city,
+    },
+  });
+
+  return response.data;
+};
+
+export const fetchReservations = async () => {
+  const response = await axios.get(`${BASE_URL}/reservations`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
+    },
+  });
+
+  return response.data;
+};
+
+export const deleteReservation = async (id) => {
+  const response = await axios.delete(`${BASE_URL}/reservations/${id}`, {
     headers: {
       'Content-Type': 'application/json',
     },
