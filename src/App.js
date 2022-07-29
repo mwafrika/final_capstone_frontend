@@ -49,6 +49,7 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={<MainPage />}>
+          <Route path='' element={<BikeList />} />
           <Route path='add-bike' element={<AddBike />} />
           <Route path='bikes/:id' element={<BikeDetails />} />
           <Route path='login' element={<Login />} />
