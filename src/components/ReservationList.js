@@ -16,7 +16,7 @@ export default function ReservationList() {
   return (
     <div className='col-span-7 xs:col-span-9 flex flex-col
                     justify-start items-center gap-y-3 mt-10
-                    '
+                    overflow-y-scroll mb-12'
     >
       <h2 className='text-main'>Reservation List</h2>
       {
