@@ -18,37 +18,33 @@ export default function reservationList(reservations) {
     <li
       className='grid grid-cols-5
                 border-2 mx-3
-                sm:w-3/4 sm:self-center'
+                sm:w-full sm:self-center sm:min-w-[500px]'
       key={item.id}
     >
       <div className='col-span-2 p-1 flex justify-center'>
-        <img src={item.bike.image_url} alt='Item detail' className='sm:w-1/2' />
+        <img src={item.bike.image_url} alt='Bike' className='sm:w-1/2' />
       </div>
       <div className='col-span-3 flex flex-col
-                    p-1 sm:grid sm:grid-cols-2 sm:justify-items-end'
+                    p-1'
       >
-        <div className='flex gap-x-2 w-full sm:col-start-2'>
+        <div className='flex gap-x-2 w-full '>
           <h3 className='text-main self-start'>Model: </h3>
           <p className='font-sm' style={color}>{item.bike.model}</p>
         </div>
-        <div className='flex gap-x-2 w-full sm:col-start-2'>
+        <div className='flex gap-x-2 w-full'>
           <h3 className='text-main self-start'>City: </h3>
           <p style={color}>{item.city}</p>
         </div>
-        <div className='flex gap-x-2 w-full sm:col-start-2'>
+        <div className='flex gap-x-2 w-full'>
           <h3 className='text-main self-start'>Date: </h3>
           <p style={color}>{item.date_reserved}</p>
         </div>
-        <div className='flex gap-x-2 w-full sm:col-start-2'>
-          <h3 className='text-main self-start'>Reservation Number: </h3>
-          <p style={color}>{item.reservation_number}</p>
-        </div>
-        <div className='flex gap-x-2 w-full sm:col-start-2'>
+        <div className='flex gap-x-2 w-full'>
           <h3 className='text-main self-start'>Description: </h3>
           <p style={color}>{item.bike.description}</p>
         </div>
         <div className='flex gap-x-2 w-full bg-red-500
-                      justify-start border-2 rounded-1/2 sm:col-start-2'
+                      justify-start border-2 sm:w-1/2'
         >
           <button type='button' className='self-center w-full text-white' id={item.id} onClick={(e) => handleRemoveBtn(e)}>Remove</button>
         </div>

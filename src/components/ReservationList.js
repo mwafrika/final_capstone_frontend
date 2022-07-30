@@ -41,6 +41,13 @@ export default function ReservationList() {
           </ul>
         )
       }
+      {
+        reservations.length === 0 && (
+          <ul className='flex flex-col gap-2'>
+            <p>No items yet</p>
+          </ul>
+        )
+      }
 
     </div>
   );
