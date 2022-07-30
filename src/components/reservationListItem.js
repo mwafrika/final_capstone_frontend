@@ -22,7 +22,7 @@ export default function reservationList(reservations) {
       key={item.id}
     >
       <div className='col-span-2 p-1 flex justify-center'>
-        <img src={item.bike.image_url} alt='Bike' className='sm:w-1/2' />
+        <img src={item.bike.image_url} alt={item.name} className='sm:w-1/2' />
       </div>
       <div className='col-span-3 flex flex-col
                     p-1'

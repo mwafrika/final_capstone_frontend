@@ -10,10 +10,10 @@ const color = {
   fontSize: '0.875rem',
 };
 
-const Bike = ({ bikes }) => (bikes.length <= 2 ? (
+const Bike = ({ bikes, isMobile }) => (bikes.length <= 2 || isMobile === true ? (
   <div className='caroussel_row'>
     {bikes.map((bike) => (
-      <Link to={`${bike.id}`} key={bike.id}>
+      <Link to={`${bike.id}`} key={bike.id} className='border-2 p-2 rounded-md mb-2'>
         <div className='bike-card'>
           <img src={bike.image_url} loading='lazy' alt={bike.name} />
           <div className='flex gap-5 w-full p-2 justify-start'>
