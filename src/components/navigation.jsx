@@ -29,7 +29,9 @@ export default function navigation() {
           alt='Logo'
         />
       </div>
-      <div className='row-span-4 flex justify-center'>
+      <div className='row-span-4 flex justify-center
+                     sm:max-h-[990px]'
+      >
         <div className='self-center w-full'>
           <ul className='flex flex-col gap-3'>
             <li className='activeflex justify-center hover:bg-main' key='bike_link'>
