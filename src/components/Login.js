@@ -25,7 +25,10 @@ const Login = () => {
     }));
   };
   return (
-    <div className='col-span-7 xs:col-span-9 flex flex-col justify-center items-center gap-y-3'>
+    <div className='col-span-7 xs:col-span-9 flex flex-col
+                    justify-center items-center
+                    gap-y-3 xs:h-full'
+    >
       <h1 className='register-page-heading leading-10 text-main'>Login</h1>
       <form
         className='flex flex-col items-center
