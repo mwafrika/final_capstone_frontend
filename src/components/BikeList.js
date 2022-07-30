@@ -37,11 +37,10 @@ const BikeList = () => {
     return windowDimensions;
   }
 
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   if (width < 800) {
     isMobile = true;
   }
-  console.log(height, width, isMobile);
 
   return (
     <>
