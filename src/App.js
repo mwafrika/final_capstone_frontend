@@ -9,6 +9,8 @@ import Navigation from './components/navigation';
 import Signup from './components/Signup';
 import AddBike from './components/BikeForm';
 import BikeList from './components/BikeList';
+AddReservation
+import AddReservation from './components/add-reservation';
 import BikeDetails from './components/BikeDetails';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
@@ -54,6 +56,7 @@ function App() {
           <Route path='bikes/:id' element={<BikeDetails />} />
           <Route path='login' element={<Login />} />
           <Route path='bikes' element={<BikeList />} />
+          <Route path='bikes/:id/reserve' element={<AddReservation />} />
           <Route path='registration' element={<Signup />} />
           <Route path='reservations' element={<ReservationList />} />
           <Route path='*' element={<NotFound />} />

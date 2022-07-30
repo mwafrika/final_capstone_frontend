@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://yamaha-motor.herokuapp.com';
-// const BASE_URL = 'http://localhost:3000';
+// const BASE_URL = 'https://yamaha-motor.herokuapp.com';
+const BASE_URL = 'http://localhost:3000';
 
 export const signup = async (user) => {
   const response = await axios.post(`${BASE_URL}/users`, {
@@ -34,11 +34,7 @@ const authHeader = () => {
 };
 
 export const newReservation = async (reservation) => {
-  const formData = new FormData();
-  formData.append('reservation[bike_id]', reservation.bike_id);
-  formData.append('reservation[city]', reservation.city);
-  formData.append('reservation[date_reserved]', reservation.date_reserved);
-  const response = await axios.post(`${BASE_URL}/reservations`, formData, {
+  const response = await axios.post(`${BASE_URL}/reservations`, reservation, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${authHeader()}`,

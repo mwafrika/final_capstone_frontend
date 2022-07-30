@@ -19,7 +19,8 @@
       "react/react-in-jsx-scope": "off",
       "import/no-unresolved": "off",
       "no-shadow": "off",
-      "jsx-quotes": [2, "prefer-single"]
+      "jsx-quotes": [2, "prefer-single"],
+      "linebreak-style": 0
     },
     "ignorePatterns": [
       "dist/",

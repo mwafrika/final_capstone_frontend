@@ -21,8 +21,8 @@ export default function reservationList(reservations) {
                 sm:w-full sm:self-center sm:min-w-[500px]'
       key={item.id}
     >
-      <div className='col-span-2 p-1 flex justify-center'>
-        <img src={item.bike.image_url} alt='Bike' className='sm:w-1/2' />
+      <div className='col-span-1 p-1 flex justify-center'>
+        <img src={item.bike?.image_url} alt='Bike' className='sm:w-1/2' />
       </div>
       <div className='col-span-3 flex flex-col
                     p-1'

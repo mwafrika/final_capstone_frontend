@@ -35,7 +35,7 @@ export default function ReservationList() {
         )
       }
       {
-        reservations.length > 0 && (
+        reservations?.length > 0 && (
           <ul className='flex flex-col gap-2'>
             { listContainer }
           </ul>
