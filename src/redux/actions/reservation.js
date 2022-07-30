@@ -47,13 +47,14 @@ export const fetchReservations = () => (dispatch) => {
     });
 };
 
-export const deleteReservation = (id) => (dispatch) => {
+export const deleteReservation = (id, navigate) => (dispatch) => {
   API.deleteReservation(id)
     .then((res) => {
       dispatch({
         type: actionTypes.RESERVATION_DELETE_SUCCESS,
         payload: res,
       });
+      navigate('/bikes');
     })
     .catch((err) => {
       dispatch({
