@@ -30,16 +30,16 @@ const BikeForm = () => {
 
   return (
     <>
-      <div
-        className='col-span-4 grid grid-rows-8
-                        sm:col-span-6 md:col-span-6
-                        xs:col-span-7'
+      <div className='col-span-7 xs:col-span-9 flex flex-col
+                      justify-center items-center
+                      gap-y-3 xs:h-full'
       >
         <section className='form-page'>
-          <h1 className='text-center'>Create and Add New Bikes </h1>
+          <p className='text-center' style={{ color: 'rgb(100 116 139)' }}>Add Bike </p>
+          <hr />
           <form
             onSubmit={handleSubmit}
-            className='add-bike-form flex flex-col w-[60%] mx-auto mt-10'
+            className='add-bike-form flex flex-col w-[60%] sm:w-[90%] mx-auto mt-10'
           >
             <input
               className='add-bike-input-field input-field'

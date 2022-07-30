@@ -28,12 +28,15 @@ const Signup = () => {
   };
 
   return (
-    <div className='col-span-7 xs:col-span-9 flex flex-col justify-center items-center gap-y-3'>
+    <div className='col-span-7 xs:col-span-9
+                   flex flex-col justify-center
+                   items-center gap-y-3 xs:h-full'
+    >
       <h1 className='register-page-heading text-main'>Sign Up</h1>
       <form
         className='flex flex-col items-center
-                  gap-y-2 p-2 w-full xs:w-full
-                  md:w-1/2'
+                  gap-y-2 p-2 w-full
+                  md:w-1/2 xs:w-3/4'
         onSubmit={handleLogin}
       >
 
@@ -47,7 +50,6 @@ const Signup = () => {
           className='w-full sm:w-3/4 border-1 border-main focus:border-main'
           type='text'
           name='username'
-          id='signup-username-field'
           placeholder='Username'
           required
           value={userSignup.username}
@@ -57,7 +59,6 @@ const Signup = () => {
           className='w-full sm:w-3/4 border-1 border-main focus:border-main'
           type='email'
           name='email'
-          id='signup-email-field'
           placeholder='Email'
           required
           value={userSignup.email}
@@ -67,7 +68,6 @@ const Signup = () => {
           className='w-full sm:w-3/4 border-1 border-main  focus:border-main'
           type='password'
           name='password'
-          id='signup-password-confirmation-field'
           placeholder='Password'
           required
           minLength='6'
@@ -78,7 +78,6 @@ const Signup = () => {
           className='w-full sm:w-3/4 border-1 border-main focus:border-main'
           type='text'
           name='bio'
-          id='signup-bio-field'
           placeholder='Bio'
           required
           value={userSignup.bio}

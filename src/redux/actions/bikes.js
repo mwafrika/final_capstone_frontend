@@ -88,7 +88,7 @@ export const reserveBike = (reserve, navigate) => (dispatch) => {
         type: actionTypes.RESERVE_CREATE_SUCCESS,
         payload: reserve,
       });
-      navigate('/bikes');
+      navigate('/reservations');
     })
     .catch((error) => {
       dispatch({

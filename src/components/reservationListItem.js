@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { deleteReservation, fetchReservations } from '../redux/actions/reservation';
+import { useNavigate } from 'react-router';
+import { deleteReservation } from '../redux/actions/reservation';
 
 export default function reservationList(reservations) {
   const color = {
@@ -7,12 +8,11 @@ export default function reservationList(reservations) {
     fontSize: '0.875rem',
   };
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleRemoveBtn(e) {
     const itemId = e.target.id;
-    dispatch(deleteReservation(itemId));
-
-    dispatch(fetchReservations());
+    dispatch(deleteReservation(itemId, navigate));
   }
   return reservations.map((item) => (
     <li
