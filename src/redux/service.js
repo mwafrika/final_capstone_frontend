@@ -71,6 +71,7 @@ export const fetchBikes = async () => {
   const response = await axios.get(`${BASE_URL}/bikes`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
     },
   });
 
@@ -113,6 +114,7 @@ export const deleteReservation = async (id) => {
   const response = await axios.delete(`${BASE_URL}/reservations/${id}`, {
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${authHeader()}`,
     },
   });
 
