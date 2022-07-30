@@ -1,10 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import './card-details.scss';
 import settings from './caroussel';
+
+const color = {
+  color: 'rgb(100 116 139)',
+  fontSize: '0.875rem',
+};
 
 const Bike = ({ bikes }) => (bikes.length <= 2 ? (
   <div className='caroussel_row'>
@@ -12,10 +16,17 @@ const Bike = ({ bikes }) => (bikes.length <= 2 ? (
       <Link to={`${bike.id}`} key={bike.id}>
         <div className='bike-card'>
           <img src={bike.image_url} loading='lazy' alt={bike.name} />
-          <div className='descript'>
-            <p>{bike.make}</p>
-            <div className='model'>{bike?.model}</div>
-            <p>{bike.description}</p>
+          <div className='flex gap-5 w-full p-2 justify-start'>
+            <h3 className='text-main self-start'>Name:</h3>
+            <p style={color}>{bike.make}</p>
+          </div>
+          <div className='flex gap-5 w-full p-2 justify-start'>
+            <h3 className='text-main self-start'>Model:</h3>
+            <p style={color}>{bike.model}</p>
+          </div>
+          <div className='flex gap-5 w-full p-2 justify-start'>
+            <h3 className='text-main self-start'>Description:</h3>
+            <p style={color}>{bike.description}</p>
           </div>
         </div>
       </Link>
