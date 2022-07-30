@@ -10,7 +10,7 @@
 .home-container {
   width: 85%;
   position: absolute;
-  padding: 2rem;
+  padding: 0 2rem;
   right: -4%;
   display: flex;
   flex-direction: column;
@@ -71,14 +71,17 @@
   .home-container {
     width: 88%;
     position: relative;
-    padding-top: 3rem;
     right: 0;
+    top: 90px;
+    z-index: -9999;
 
     .bike-card {
       height: 210px;
 
       .descript {
         width: 100%;
+        // float: left;
+        // padding: 10px;
       }
     }
   }
@@ -91,6 +94,11 @@
         flex-direction: row;
         justify-content: center;
       }
+      // .descript {
+      //   width: 100%;
+      //   padding: 10px 5px;
+      //   float: left;
+      // }
     }
   }
 }
