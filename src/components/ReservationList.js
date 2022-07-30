@@ -42,7 +42,7 @@ export default function ReservationList() {
         )
       }
       {
-        reservations.length === 0 && (
+        reservations.length === 0 && loading === false && (
           <ul className='flex flex-col gap-2'>
             <p>No items yet</p>
           </ul>
